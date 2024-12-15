@@ -1,0 +1,58 @@
+<!-- Título do app--> 
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      JLY News
+    </ion-title>
+    <ion-button class="" color="dark">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-button>
+    <ion-button class="ion-float-right" color="dark">
+      <ion-icon name="settings-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-toolbar>
+          <ion-searchbar placeholder="Digite um título" [(ngModel)]="queryText" (ionInput)="filterNoticia($event)" show-clear-button="focus" value="Show on Focus" animated="true">
+          </ion-searchbar>
+        </ion-toolbar>
+        <ion-list>
+          <ion-item no-lines *ngFor="let noticia of pesquisa">
+            <h3>{{noticia.titulo}}</h3>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--Carrosssel-->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/10/queimadas-florestais.jpg"></ion-img>
+        <b>Lorem Ipsum</b>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--Fim do Carrossel-->
+  <ion-grid>
+    <ion-row>
+      <ion-list>
+        <ion-item class="ion-margin-bottom" *ngFor="let data of datas; let i = index">
+          <ion-col size="4">
+            <ion-img src="{{ data.imagem }}"></ion-img>
+            {{todo}}
+          </ion-col>
+          <ion-col size="8">
+            <p>{{ data.titulo1 }}</p>
+            {{todo}}
+          </ion-col>
+        </ion-item>
+      </ion-list>
+    </ion-row>
+  </ion-grid>
+</ion-content>
